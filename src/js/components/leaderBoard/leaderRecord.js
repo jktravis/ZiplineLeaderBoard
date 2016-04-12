@@ -26,8 +26,8 @@ var LeaderRecord = React.createClass({
             {" "} {this.props.camper.username}
            </a>
         </td>
-        <td>{this.props.camper.recent}</td>
-        <td>{this.props.camper.alltime}</td>
+        <td>{this.props.camper.recent.toLocaleString()}</td>
+        <td>{this.props.camper.alltime.toLocaleString()}</td>
       </tr>
     );
   }
