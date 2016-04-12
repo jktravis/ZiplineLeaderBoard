@@ -1,7 +1,7 @@
 "use strict";
 var React = require('react');
 
-var App = React.createClass({
+var LeaderBoard = React.createClass({
   render: function render() {
     return (
       <div>
@@ -11,4 +11,4 @@ var App = React.createClass({
   }
 });
 
-module.exports = App;
+module.exports = LeaderBoard;
