@@ -33,12 +33,17 @@ var LeaderBoard = React.createClass({
     }
   },
 
+  onSort: function onSort(event) {
+    event.preventDefault();
+    this.getCampers(event.target.id);
+  },
+
   render: function render() {
     return (
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-10 col-lg-offset-1">
-            <LeaderList campers={this.state.campers}/>
+            <LeaderList campers={this.state.campers} onSort={this.onSort}/>
           </div>
         </div>
       </div>

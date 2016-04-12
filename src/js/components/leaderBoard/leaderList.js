@@ -1,13 +1,15 @@
 "use strict";
 var React = require('react');
 var LeaderRecord = require('./leaderRecord');
+var ListTypes = require('../../constants/listTypes');
 
 /**
  * Provides a the list, or table, in which to display the campers.
  */
 var LeaderList = React.createClass({
   propTypes: {
-    campers: React.PropTypes.array.isRequired
+    campers: React.PropTypes.array.isRequired,
+    onSort: React.PropTypes.func.isRequired
   },
   render: function render() {
     var createLeaderRecord = function (camper) {
@@ -24,8 +26,12 @@ var LeaderList = React.createClass({
             <tr>
               <th>Rank</th>
               <th>Camper Name</th>
-              <th>Points in last 30 days</th>
-              <th>All time points</th>
+              <th><a href="#" onClick={this.props.onSort}
+                     id={ListTypes.RECENT}
+                     className="sort current">Points in last 30 days</a></th>
+              <th><a href="#" className="sort"
+                     id={ListTypes.ALL_TIME}
+                     onClick={this.props.onSort}>All time points</a></th>
             </tr>
           </thead>
           <tbody>
