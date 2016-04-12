@@ -15,7 +15,7 @@ var LeaderRecord = React.createClass({
     return (
       <tr>
         <td>{this.props.rank + 1}</td>
-        <td>
+        <td className="profile">
           <img src={this.props.camper.img} className="img-rounded"/>
           {" "} {this.props.camper.username}
         </td>

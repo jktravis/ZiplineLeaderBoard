@@ -25,7 +25,7 @@ var LeaderList = React.createClass({
           <thead>
             <tr>
               <th>Rank</th>
-              <th>Camper Name</th>
+              <th className="profile">Camper Name</th>
               <th>
                 <a href="#" onClick={this.props.onSort}
                      id={ListTypes.RECENT}
