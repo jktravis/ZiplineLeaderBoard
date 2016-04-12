@@ -14,7 +14,7 @@ var LeaderRecord = React.createClass({
   render: function render() {
     return (
       <tr>
-        <td>{this.props.rank}</td>
+        <td>{this.props.rank + 1}</td>
         <td>{this.props.camper.username}</td>
         <td>{this.props.camper.recent}</td>
         <td>{this.props.camper.alltime}</td>
