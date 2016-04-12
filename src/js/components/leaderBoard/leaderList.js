@@ -12,9 +12,9 @@ var LeaderList = React.createClass({
     onSort: React.PropTypes.func.isRequired
   },
   render: function render() {
-    var createLeaderRecord = function (camper) {
+    var createLeaderRecord = function (camper, index) {
       return (
-        <LeaderRecord key={camper.username} camper={camper} />
+        <LeaderRecord key={camper.username} camper={camper} rank={index} />
       );
     };
     return (
@@ -26,12 +26,18 @@ var LeaderList = React.createClass({
             <tr>
               <th>Rank</th>
               <th>Camper Name</th>
-              <th><a href="#" onClick={this.props.onSort}
+              <th>
+                <a href="#" onClick={this.props.onSort}
                      id={ListTypes.RECENT}
-                     className="sort current">Points in last 30 days</a></th>
-              <th><a href="#" className="sort"
+                     className="sort">Points in last 30 days</a> { " " }
+                <span className="glyphicon glyphicon-sort-by-attributes-alt"/>
+              </th>
+              <th>
+                <a href="#" className="sort"
                      id={ListTypes.ALL_TIME}
-                     onClick={this.props.onSort}>All time points</a></th>
+                     onClick={this.props.onSort}>All time points</a> { " " }
+                <span className="glyphicon"/>
+              </th>
             </tr>
           </thead>
           <tbody>

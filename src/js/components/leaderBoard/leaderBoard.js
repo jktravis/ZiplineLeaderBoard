@@ -36,6 +36,8 @@ var LeaderBoard = React.createClass({
   onSort: function onSort(event) {
     event.preventDefault();
     this.getCampers(event.target.id);
+    $('.glyphicon-sort-by-attributes-alt').removeClass('glyphicon-sort-by-attributes-alt');
+    $('#' + event.target.id).siblings('.glyphicon').addClass('glyphicon-sort-by-attributes-alt');
   },
 
   render: function render() {
