@@ -16,8 +16,15 @@ var LeaderRecord = React.createClass({
       <tr>
         <td>{this.props.rank + 1}</td>
         <td className="profile">
-          <img src={this.props.camper.img} className="img-rounded"/>
-          {" "} {this.props.camper.username}
+          <a href={"http://www.freecodecamp.com/" + this.props.camper.username}
+             target="_blank">
+            <img src={this.props.camper.img} className="img-rounded"/>
+          </a>
+          {" "}
+          <a href={"http://www.freecodecamp.com/" + this.props.camper.username}
+             target="_blank">
+            {" "} {this.props.camper.username}
+           </a>
         </td>
         <td>{this.props.camper.recent}</td>
         <td>{this.props.camper.alltime}</td>
