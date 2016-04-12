@@ -1,25 +1,33 @@
 "use strict";
 var React = require('react');
 var LeaderList = require('./leaderList');
-var recentUrl = 'http://fcctop100.herokuapp.com/api/fccusers/top/recent';
-// var allTimeUrl = 'http://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+var ListTypes = require('../../constants/listTypes');
 
 /**
  * View controller. Contains the wrapper and all the data for the LeaderBoard component.
  */
 var LeaderBoard = React.createClass({
   getInitialState: function getInitialState() {
-    this.getRecentCampers();
+    this.getCampers(ListTypes.RECENT);
     return {
       campers: []
     };
   },
 
-  getRecentCampers: function getRecentCampers() {
-    var self = this;
-    $.getJSON(recentUrl, function (data) {
-      self.setState({campers: data});
-    });
+  getCampers: function getCampers(listType) {
+    var _this = this;
+    var url = null;
+    if (listType === ListTypes.RECENT) {
+      url = ListTypes.RECENT_URL;
+    } else if (listType === ListTypes.ALL_TIME) {
+      url = ListTypes.ALL_TIME_URL;
+    }
+
+    if (url !== null) {
+      $.getJSON(url, function (data) {
+        _this.setState({campers: data});
+      });
+    }
   },
 
   render: function render() {
