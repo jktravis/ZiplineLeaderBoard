@@ -2,6 +2,9 @@
 
 var React = require('react');
 
+/**
+ * Represents the individual camper records.
+ */
 var LeaderRecord = React.createClass({
   propTypes: {
     camper: React.PropTypes.object.isRequired

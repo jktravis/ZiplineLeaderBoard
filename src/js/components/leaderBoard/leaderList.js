@@ -2,6 +2,9 @@
 var React = require('react');
 var LeaderRecord = require('./leaderRecord');
 
+/**
+ * Provides a the list, or table, in which to display the campers.
+ */
 var LeaderList = React.createClass({
   propTypes: {
     campers: React.PropTypes.array.isRequired

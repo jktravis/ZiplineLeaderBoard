@@ -17,6 +17,7 @@ var LeaderBoard = React.createClass({
   getCampers: function getCampers(listType) {
     var _this = this;
     var url = null;
+
     if (listType === ListTypes.RECENT) {
       url = ListTypes.RECENT_URL;
     } else if (listType === ListTypes.ALL_TIME) {
@@ -25,7 +26,9 @@ var LeaderBoard = React.createClass({
 
     if (url !== null) {
       $.getJSON(url, function (data) {
-        _this.setState({campers: data});
+        _this.setState({campers: data.sort(function (a, b) {
+          return a[listType] < b[listType];
+        })});
       });
     }
   },
