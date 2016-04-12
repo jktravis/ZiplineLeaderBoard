@@ -27,7 +27,7 @@ var LeaderBoard = React.createClass({
     if (url !== null) {
       $.getJSON(url, function (data) {
         _this.setState({campers: data.sort(function (a, b) {
-          return a[listType] < b[listType];
+          return b[listType] - a[listType];
         })});
       });
     }
